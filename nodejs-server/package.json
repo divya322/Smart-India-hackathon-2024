@@ -1,0 +1,34 @@
+{
+    "name": "nodejs-server",
+    "version": "1.0.0",
+    "description": "Smart India Hackathon Server",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "app": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/savarsri/Smart-India-hackathon.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/savarsri/Smart-India-hackathon/issues"
+    },
+    "homepage": "https://github.com/savarsri/Smart-India-hackathon#readme",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.20.2",
+        "cookie-parser": "^1.4.6",
+        "cors": "^2.8.5",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^7.5.2",
+        "morgan": "^1.10.0",
+        "nodemon": "^3.0.1",
+        "python-shell": "^5.0.0",
+        "socket.io": "^4.7.2",
+        "validator": "^13.11.0"
+    }
+}

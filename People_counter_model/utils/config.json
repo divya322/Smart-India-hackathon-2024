@@ -1,0 +1,12 @@
+{
+    "Email_Send": "",
+    "Email_Receive": "",
+    "Email_Password": "",
+    "url": "https://rr1---sn-cvh76nes.googlevideo.com/videoplayback?expire=1695328037&ei=xVIMZda6FMWu7gOnmLJg&ip=176.125.230.19&id=VFW8E8mDSE4.3&itag=136&aitags=133%2C134%2C135%2C136%2C160&source=yt_live_broadcast&requiressl=yes&spc=UWF9f9ZhR6KkP2qSVcaYO1u5CIcjYXk&vprv=1&live=1&hang=1&noclen=1&svpuc=1&mime=video%2Fmp4&gir=yes&keepalive=yes&fexp=24007246,24350018&beids=24350018&c=ANDROID&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cspc%2Cvprv%2Clive%2Chang%2Cnoclen%2Csvpuc%2Cmime%2Cgir&sig=AOq0QJ8wRQIhAMBYiuu5_rnzEVuPeD0uKyZRAlupAIbpgYmoi0etQzPMAiBsTAxxlmpFchz6P8HRznBI88tvscZZn8s__3mUmG2zjA%3D%3D&rm=sn-4g5ers7s&req_id=747c2982a794a3ee&redirect_counter=2&cm2rm=sn-u5u5n3tpo-2o9e7e&cms_redirect=yes&cmsv=e&ipbypass=yes&mh=AX&mip=2402:e280:3e0b:6db:f9f6:f344:54a:b38&mm=29&mn=sn-cvh76nes&ms=rdu&mt=1695306088&mv=m&mvi=1&pl=48&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAKe0TNI689f4b4PiheW-r8vazgJ48x-pjK6aU95AjxJEAiEAjHmj4RoTIoEXLzUHy3kQnEV0ljqxkvxFt508ONooGJA%3D",
+    "ALERT": false,
+    "Threshold": 10,
+    "Thread": false,
+    "Log": false,
+    "Scheduler": false,
+    "Timer": false
+}

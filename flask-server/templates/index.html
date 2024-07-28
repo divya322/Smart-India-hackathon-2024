@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Socket.IO Example</title>
+</head>
+<body>
+    <h1>Socket.IO Example</h1>
+    <img id="frame" src="" alt="Frame">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('frame', function (frameData) {
+            // Update the image source with the received frame
+            document.getElementById('frame').src = 'data:image/jpeg;base64,' + frameData;
+        });
+    </script>
+</body>
+</html>

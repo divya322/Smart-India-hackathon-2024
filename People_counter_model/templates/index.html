@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Surveillance System</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Set the background color of the entire page */
+        }
+
+        /* Ribbon Styles */
+        .ribbon {
+            background-color: #0074D9;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Video Container Styles */
+        .video-container {
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adding a shadow to the video container */
+            padding: 20px;
+            background-color: #222; /* Background color for the video container */
+            border: 2px solid #444; /* Border for the video container */
+            border-radius: 10px; /* Rounded corners for the video container */
+        }
+
+        /* Video Styles */
+        #frame {
+            max-width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adding a shadow to the video frame */
+            border: 2px solid #444; /* Border for the video frame */
+            border-radius: 5px; /* Rounded corners for the video frame */
+        }
+
+        /* Button Container Styles */
+        .button-container {
+            display: flex;
+            flex-direction: column; /* Display buttons in a column */
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px; /* Increased margin for spacing */
+        }
+
+        /* Button Styles */
+        .button {
+            background-color: #0074D9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            margin: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Adding a shadow to the buttons */
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Icon Styles */
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Ribbon at the top -->
+    <div class="ribbon">
+        <h1>AI Powered Railway Station Surveillance System</h1>
+    </div>
+
+    <!-- Video container -->
+    <div class="video-container">
+        <!-- Image display -->
+        <img id="frame" src="" alt="Frame">
+
+        <!-- Button container for Play, Pause, Forward, Rewind, Fast Forward, Slow -->
+<div class="button-container" style="flex-direction: row;">
+    <button class="button" id="playButton">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+        </svg>
+        Play
+    </button>
+    <button class="button" id="pauseButton">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+        </svg>
+        Pause
+    </button>
+    <button class="button" id="forwardButton">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 8V4l8 8-8 8v-4H4V8z" />
+        </svg>
+        Forward
+    </button>
+    <button class="button" id="rewindButton">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 8V4l-8 8 8 8v-4h8V8z" />
+        </svg>
+        Rewind
+    </button>
+    <button class="button" id="fastForwardButton">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M5 4v16h4V4H5zm10 0v16h4V4h-4z" />
+        </svg>
+        Fast Forward
+    </button>
+    <button class="button" id="slowButton">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M5 4v16h14V4H5zm2 14V6l8 6-8 6z" />
+        </svg>
+        Slow
+    </button>
+</div>
+
+    </div>
+
+    <!-- Include Socket.IO script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        // Connect to Socket.IO server
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        // Handle frame data received from the server
+        socket.on('frame', function (frameData) {
+            // Update the image source with the received frame
+            document.getElementById('frame').src = 'data:image/jpeg;base64,' + frameData;
+        });
+
+        // Play/Pause Button Click Handler
+        var isPlaying = false;
+
+        function togglePlayPause() {
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                socket.emit('playButton'); // Emit play event to the server
+            } else {
+                socket.emit('pauseButton'); // Emit pause event to the server
+            }
+        }
+
+        var playButton = document.getElementById('playButton');
+        var pauseButton = document.getElementById('pauseButton');
+
+        playButton.addEventListener('click', togglePlayPause);
+        pauseButton.addEventListener('click', togglePlayPause);
+
+        // Forward/Rewind/Fast Forward/Slow Button Click Handlers
+        document.getElementById('forwardButton').addEventListener('click', function () {
+            socket.emit('forward'); // Emit forward event to the server
+        });
+
+        document.getElementById('rewindButton').addEventListener('click', function () {
+            socket.emit('backward'); // Emit backward event to the server
+        });
+
+        document.getElementById('fastForwardButton').addEventListener('click', function () {
+            socket.emit('fast'); // Emit fast forward event to the server
+        });
+
+        document.getElementById('slowButton').addEventListener('click', function () {
+            socket.emit('slow'); // Emit slow event to the server
+        });
+    </script>
+</body>
+
+</html>
